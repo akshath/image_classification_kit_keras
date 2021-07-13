@@ -1,1 +1,1 @@
-# image_classification_kit_keras
+# Image Classification Kit - Keras
