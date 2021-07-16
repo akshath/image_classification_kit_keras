@@ -1,0 +1,26 @@
+#config.yml
+
+project_name: my_project
+
+#make sure path ends with /
+dir: './project/'
+temp_dir: '/temp/ai-project/'
+
+
+#src_video: 0 #for primary web cam
+#src_video: 'rtsp://username:password@192.168.1.10:554/stream1' #remote ip cam
+src_video: 0
+
+reduce_image_wh_by: 3
+
+#crop % from left or right of image
+crop_image_from_left: 0.0
+crop_image_from_right: 0.0
+
+#labels
+labels:
+    drinking
+    siting
+    standing
+    
+model_file: ./model.h5
