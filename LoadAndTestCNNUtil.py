@@ -1,5 +1,7 @@
 
 import numpy as np
+import pandas as pd
+import seaborn as sns
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Model
@@ -84,8 +86,14 @@ class LoadAndTestCNNUtil:
             print('Class:', self.class_names[np.argmax(score)], '[', round(100*np.max(score),3), '%]')
             print('-'*25)
         
-            for l,s in zip(self.class_names,list(score*100)):
-                print(l.rjust(10,' '),round(float(s),3))
+            #for l,s in zip(self.class_names,list(score*100)):
+            #    print(l.rjust(10,' '),round(float(s),3))
+                
+            df = pd.DataFrame({'ClassName': self.class_names,
+                             'Score': [round(float(s),3) for s in list(score*100)]})
+            print(df.sort_values(by='Score', ascending=False))
+            print('-')
+            sns.barplot(x=df.Score, y=df.ClassName, ci=None)
                 
         return (self.class_names[np.argmax(score)], round(100*np.max(score),3))
 

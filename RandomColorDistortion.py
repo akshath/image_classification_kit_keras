@@ -8,9 +8,9 @@ class RandomColorDistortion(tf.keras.layers.Layer):
     def __init__(self, **kwargs):
         super(RandomColorDistortion, self).__init__(**kwargs)
 
-    def update_cfg(self, cfg_to_use):
-        contrast_range = cfg_to_use['train_augumentation']['contrast_range']
-        brightness_delta = cfg_to_use['train_augumentation']['brightness_delta']
+    def update_cfg(self, cfg_file):
+        contrast_range = cfg_file.cfg['train_augumentation']['contrast_range']
+        brightness_delta = cfg_file.cfg['train_augumentation']['brightness_delta']
 
     def call(self, images, training=True):
         if not training:
