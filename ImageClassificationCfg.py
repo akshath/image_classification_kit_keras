@@ -4,21 +4,24 @@ import FileIOUtil
 class ImageClassificationCfg:
     def __init__(self, file):
         self.cfg_file = file
-    
+
     def load(self, cfg_file=None):
         #read cfg
         if cfg_file is None:
             cfg_file = self.cfg_file
         with open(cfg_file, "r") as ymlfile:
-            self.cfg = yaml.load(ymlfile, Loader=yaml.CLoader)
-            
+            try:
+                self.cfg = yaml.load(ymlfile, Loader=yaml.CLoader)
+            except AttributeError:
+                self.cfg = yaml.load(ymlfile)
+
         project_name = self.cfg["project_name"]
-        project_parent_dir = self.cfg["project_parent_dir"]        
-            
+        project_parent_dir = self.cfg["project_parent_dir"]
+
         self.project_dir = project_parent_dir + project_name + "/"
         self.project_temp_dir = self.cfg["temp_dir"] + project_name + "/"
         self.loc_unknown = self.project_temp_dir+'non-labeled/'
-            
+
         labels_from_dir = self.cfg['labels_from_dir']
         if labels_from_dir==True:
             self.labels = FileIOUtil.get_dir(self.project_dir, only_dir=True)
@@ -26,11 +29,11 @@ class ImageClassificationCfg:
             self.labels = self.cfg['labels'].split(' ')
         self.labels.sort()
         self.cfg['labels'] = self.labels
-            
-    def log_info(self):        
+
+    def log_info(self):
         print('project_name: ',self.cfg["project_name"])
-        print('-'*20)        
-        
+        print('-'*20)
+
         print('project_parent_dir: ',self.cfg["project_parent_dir"])
         print('temp_dir: ', self.cfg["temp_dir"])
         print('file_ext: ', self.cfg["file_ext"])
@@ -40,7 +43,7 @@ class ImageClassificationCfg:
         print('crop_image_from_left: ',self.cfg['crop_image_from_left'])
         print('crop_image_from_right: ',self.cfg['crop_image_from_right'])
         print('-'*20)
-        
+
         print('project_dir: ', self.project_dir)
         print('project_temp_dir:', self.project_temp_dir)
         print('loc_unknown:', self.loc_unknown)

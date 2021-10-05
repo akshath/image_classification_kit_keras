@@ -8,3 +8,14 @@ ipython_config.py
 # pyenv
 .python-version
 
+# temp folder
+temp/
+__pycache__
+
+# demo project folders
+project/flowers-recognition/daisy/
+project/flowers-recognition/dandelion/
+project/flowers-recognition/rose/
+project/flowers-recognition/sunflower/
+project/flowers-recognition/tulip/
+*.h5
