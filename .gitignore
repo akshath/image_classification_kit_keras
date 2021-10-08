@@ -16,6 +16,9 @@ __pycache__
 .vscode
 
 # demo project folders
-project/flowers-recognition/data
-project/flowers-recognition/temp
+project/flowers-recognition/data/daisy
+project/flowers-recognition/data/rose
+project/flowers-recognition/data/dandelion
+project/flowers-recognition/data/sunflower
+project/flowers-recognition/data/tulip
 *.h5
