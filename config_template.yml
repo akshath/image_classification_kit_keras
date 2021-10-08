@@ -4,9 +4,14 @@ project_name: my_project
 
 #----- param for dir -----------
 #make sure path ends with /
-#project_parent_dir: './project/'. we we create folder for project_name under this dir to store images
+#project_parent_dir: './project/'.
+#we we create folder for project_name under this dir (if missing)
+#we will store images in data sub-folder (./project/my_project/data)
 project_parent_dir: './project/'
-temp_dir: '/temp/ai-project/'
+
+#temp_dir: './temp/'
+#will be used to store non classified images
+temp_dir: './temp/'
 
 
 #----- param for image capture -----------
@@ -29,7 +34,7 @@ labels:
     standing
 
 #--- Param to be used to build and test model --
-model_file: './project/model_files/my_project_model.h5'
+model_file: './my_project_model.h5'
 input_img_height: 224
 input_img_width: 224
 
@@ -38,6 +43,6 @@ train_augumentation:
     brightness_delta: [-50, 50]
     random_rotation: [-0.03, 0.03]
     random_zoom: [-0.05, 0] #-ve is zoom in
-    
+
 train_freeze_base_layer: False
 train_freeze_skip_last_layers: 4

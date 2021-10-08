@@ -1,5 +1,5 @@
 import yaml
-import FileIOUtil
+import pycode.FileIOUtil
 
 class ImageClassificationCfg:
     def __init__(self, file):
@@ -19,12 +19,13 @@ class ImageClassificationCfg:
         project_parent_dir = self.cfg["project_parent_dir"]
 
         self.project_dir = project_parent_dir + project_name + "/"
+        self.project_data_dir = self.project_dir + "/data/"
         self.project_temp_dir = self.cfg["temp_dir"] + project_name + "/"
         self.loc_unknown = self.project_temp_dir+'non-labeled/'
 
         labels_from_dir = self.cfg['labels_from_dir']
         if labels_from_dir==True:
-            self.labels = FileIOUtil.get_dir(self.project_dir, only_dir=True)
+            self.labels = pycode.FileIOUtil.get_dir(self.project_data_dir, only_dir=True)
         else:
             self.labels = self.cfg['labels'].split(' ')
         self.labels.sort()

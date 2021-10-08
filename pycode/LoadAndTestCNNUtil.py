@@ -9,8 +9,8 @@ from tensorflow.keras.models import Model
 from PIL import Image
 
 from tensorflow.keras.utils import CustomObjectScope
-from RandomColorDistortion import RandomColorDistortion
-from ImageClassificationCfg import ImageClassificationCfg
+from pycode.RandomColorDistortion import RandomColorDistortion
+from pycode.ImageClassificationCfg import ImageClassificationCfg
 
 class LoadAndTestCNNUtil:    
 

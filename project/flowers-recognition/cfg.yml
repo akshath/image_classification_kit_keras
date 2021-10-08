@@ -6,10 +6,13 @@ project_name: flowers-recognition
 
 #----- param for dir -----------
 #make sure path ends with /
-#project_parent_dir: './project/'. we we create folder for project_name under this dir to store images
+#project_parent_dir: './project/'.
+#we we create folder for project_name under this dir (if missing)
+#we will store images in data sub-folder (./project/my_project/data)
 project_parent_dir: './project/'
 
 #temp_dir: './temp/'
+#will be used to store non classified images
 temp_dir: './temp/'
 
 
@@ -25,7 +28,7 @@ crop_image_from_left: 0.0
 crop_image_from_right: 0.0
 
 #----- param for labels -----------
-labels_from_dir: True
+labels_from_dir: False
 
 #labels to use if labels_from_dir was False
 labels:
@@ -36,7 +39,7 @@ labels:
     tulip
 
 #--- Param to be used to build and test model --
-model_file: './project/model_files/flowers_recognition_model.h5'
+model_file: './flowers_recognition_model.h5'
 input_img_height: 224
 input_img_width: 224
 

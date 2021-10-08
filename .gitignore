@@ -12,10 +12,10 @@ ipython_config.py
 temp/
 __pycache__
 
+#ide
+.vscode
+
 # demo project folders
-project/flowers-recognition/daisy/
-project/flowers-recognition/dandelion/
-project/flowers-recognition/rose/
-project/flowers-recognition/sunflower/
-project/flowers-recognition/tulip/
+project/flowers-recognition/data
+project/flowers-recognition/temp
 *.h5
