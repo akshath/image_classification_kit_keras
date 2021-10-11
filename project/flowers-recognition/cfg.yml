@@ -19,7 +19,7 @@ temp_dir: './temp/'
 #----- param for image capture -----------
 #src_video: 0 #for primary web cam
 #src_video: 'rtsp://username:password@192.168.1.10:554/stream1' #remote ip cam
-src_video: 1
+src_video: 2
 file_ext: '*.jpg'
 reduce_image_wh_by: 3
 
@@ -46,8 +46,8 @@ input_img_width: 224
 train_augumentation:
     contrast_range: [-1.0, 1.0]
     brightness_delta: [-50, 50]
-    random_rotation: [-0.03, 0.03]
+    random_rotation: [-0.15, 0.15]
     random_zoom: [-0.05, 0] #-ve is zoom in
 
 train_freeze_base_layer: True
-train_freeze_skip_last_layers: 4
+train_freeze_skip_last_layers: 10
