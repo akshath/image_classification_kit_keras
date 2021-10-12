@@ -19,7 +19,8 @@ class ImageClassificationCfg:
         project_parent_dir = self.cfg["project_parent_dir"]
 
         self.project_dir = project_parent_dir + project_name + "/"
-        self.project_data_dir = self.project_dir + "data/"
+        if self.project_data_dir is None:
+            self.project_data_dir = self.project_dir + "data/"
         self.project_temp_dir = self.cfg["temp_dir"] + project_name + "/"
         self.loc_unknown = self.project_temp_dir+'non-labeled/'
 

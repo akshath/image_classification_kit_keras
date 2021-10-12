@@ -48,6 +48,8 @@ train_augumentation:
     brightness_delta: [-50, 50]
     random_rotation: [-0.15, 0.15]
     random_zoom: [-0.05, 0] #-ve is zoom in
+    #random_flip: horizontal_and_vertical or horizontal or vertical
+    random_flip: 'horizontal'
 
 train_freeze_base_layer: True
-train_freeze_skip_last_layers: 10
+train_freeze_skip_last_layers: 90
