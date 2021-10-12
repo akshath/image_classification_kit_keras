@@ -16,8 +16,13 @@ class ImageClassificationCfg:
                 self.cfg = yaml.load(ymlfile)
 
         project_name = self.cfg["project_name"]
-        project_parent_dir = self.cfg["project_parent_dir"]        
-        self.project_dir = project_parent_dir + project_name + "/"        
+        project_parent_dir = self.cfg["project_parent_dir"]
+
+        if 'project_dir' in self.cfg.keys():
+            self.project_dir = self.cfg["project_dir"]
+        else:
+            self.project_dir = project_parent_dir + project_name + "/"
+            self.cfg["project_dir"] = self.project_dir 
 
         if 'project_data_dir' in self.cfg.keys():
             self.project_data_dir = self.cfg["project_data_dir"]
@@ -35,6 +40,12 @@ class ImageClassificationCfg:
             self.labels = self.cfg['labels'].split(' ')
         self.labels.sort()
         self.cfg['labels'] = self.labels
+
+        model_file = self.cfg['model_file']
+        if model_file is not None:
+            if model_file.startswith('./'):
+                model_file = self.project_dir + model_file[2:]
+                self.cfg['model_file'] = model_file
 
     def log_info(self):
         print('project_name: ',self.cfg["project_name"])
