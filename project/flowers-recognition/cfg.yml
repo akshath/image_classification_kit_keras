@@ -10,6 +10,7 @@ project_name: flowers-recognition
 #we we create folder for project_name under this dir (if missing)
 #we will store images in data sub-folder (./project/my_project/data)
 project_parent_dir: './project/'
+#project_data_dir: './project/data/'
 
 #temp_dir: './temp/'
 #will be used to store non classified images

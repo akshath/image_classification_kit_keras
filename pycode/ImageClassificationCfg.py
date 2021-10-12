@@ -16,11 +16,15 @@ class ImageClassificationCfg:
                 self.cfg = yaml.load(ymlfile)
 
         project_name = self.cfg["project_name"]
-        project_parent_dir = self.cfg["project_parent_dir"]
+        project_parent_dir = self.cfg["project_parent_dir"]        
+        self.project_dir = project_parent_dir + project_name + "/"        
 
-        self.project_dir = project_parent_dir + project_name + "/"
-        if self.project_data_dir is None:
+        if 'project_data_dir' in self.cfg.keys():
+            self.project_data_dir = self.cfg["project_data_dir"]
+        else:
             self.project_data_dir = self.project_dir + "data/"
+            self.cfg["project_data_dir"] = self.project_data_dir
+            
         self.project_temp_dir = self.cfg["temp_dir"] + project_name + "/"
         self.loc_unknown = self.project_temp_dir+'non-labeled/'
 
@@ -37,6 +41,7 @@ class ImageClassificationCfg:
         print('-'*20)
 
         print('project_parent_dir: ',self.cfg["project_parent_dir"])
+        print('project_data_dir: ',self.cfg["project_data_dir"])
         print('temp_dir: ', self.cfg["temp_dir"])
         print('file_ext: ', self.cfg["file_ext"])
         print('-'*20)
