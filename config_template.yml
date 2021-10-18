@@ -26,8 +26,8 @@ file_ext: '*.jpg'
 reduce_image_wh_by: 3
 
 #crop % from left or right of image
-crop_image_from_left: 0.0
-crop_image_from_right: 0.0
+crop_image_from_left: 0.0 #eg: 0.20 <- crop 20% on left
+crop_image_from_right: 0.0 #eg: 0.70 <- crop 30% on right
 
 #----- param for labels -----------
 labels_from_dir: False
