@@ -5,7 +5,7 @@ class ImageClassificationCfg:
     def __init__(self, file):
         self.cfg_file = file
 
-    def load(self, cfg_file=None):
+    def read(self, cfg_file=None):
         #read cfg
         if cfg_file is None:
             cfg_file = self.cfg_file
@@ -14,6 +14,9 @@ class ImageClassificationCfg:
                 self.cfg = yaml.load(ymlfile, Loader=yaml.CLoader)
             except AttributeError:
                 self.cfg = yaml.load(ymlfile)
+
+    def load(self, cfg_file=None):
+        self.read(cfg_file)
 
         project_name = self.cfg["project_name"]
         project_parent_dir = self.cfg["project_parent_dir"]
