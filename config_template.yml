@@ -50,5 +50,15 @@ train_augumentation:
     #random_flip: horizontal_and_vertical or horizontal or vertical or none
     random_flip: 'none'
 
+#1 - base cnn
+#2 - transfer learning cnn
+model_to_try: 2
+
+# For 1
+#model_base: ''
+# For 2
+#model_base: ResNet50, ResNet50V2, 
+model_base: 'ResNet50V2'
+
 train_freeze_base_layer: False
 train_freeze_skip_last_layers: 90

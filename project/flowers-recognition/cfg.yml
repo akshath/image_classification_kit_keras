@@ -7,17 +7,17 @@ project_name: flowers-recognition
 #----- param for dir -----------
 #make sure path ends with /
 #project_parent_dir: './project/'.
-project_parent_dir: './project/'
+project_parent_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/'
 
 #uncomment if you like to override
 #we we create folder for project_name under this dir (if missing)
-#project_dir: './project/my_project/'
+project_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/flowers-recognition/'
 #we will store images in data sub-folder (./project/my_project/data)
-#project_data_dir: './project/my_project/data/'
+project_data_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/flowers-recognition/data/'
 
 #temp_dir: './temp/'
 #will be used to store non classified images
-temp_dir: './temp/'
+temp_dir: '/content/gdrive/MyDrive/ColabNotebooks/temp/'
 
 
 #----- param for image capture -----------
@@ -32,7 +32,7 @@ crop_image_from_left: 0.0 #eg: 0.20 <- crop 20% on left
 crop_image_from_right: 0.0 #eg: 0.70 <- crop 30% on right
 
 #----- param for labels -----------
-labels_from_dir: False
+labels_from_dir: True
 
 #labels to use if labels_from_dir was False
 labels:
@@ -54,6 +54,16 @@ train_augumentation:
     random_zoom: [-0.05, 0] #-ve is zoom in
     #random_flip: horizontal_and_vertical or horizontal or vertical
     random_flip: 'horizontal'
+
+#1 - base cnn
+#2 - transfer learning cnn
+model_to_try: 2
+
+# For 1
+#model_base: ''
+# For 2
+#model_base: ResNet50, ResNet50V2, 
+model_base: 'ResNet50V2'
 
 train_freeze_base_layer: True
 train_freeze_skip_last_layers: 90
