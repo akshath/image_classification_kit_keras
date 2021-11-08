@@ -59,11 +59,9 @@ train_augumentation:
 #2 - transfer learning cnn
 model_to_try: 2
 
-# For 1
-#model_base: ''
-# For 2
-#model_base: ResNet50, ResNet50V2, 
-model_base: 'ResNet50V2'
+#'' for 1
+#for 2: ResNet50, ResNet50V2, VGG16, VGG19, MobileNet
+model_base: 'VGG19'
 
 train_freeze_base_layer: True
-train_freeze_skip_last_layers: 90
+train_freeze_skip_last_layers: 10
