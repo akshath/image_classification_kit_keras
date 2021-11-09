@@ -59,7 +59,9 @@ train_augumentation:
 #2 - transfer learning cnn
 model_to_try: 2
 
-#'' for 1
+# For 1
+#model_base: ''
+# For 2
 #for 2: ResNet50, ResNet50V2, VGG16, VGG19, MobileNet
 model_base: 'VGG19'
 
