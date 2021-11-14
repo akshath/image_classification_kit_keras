@@ -6,22 +6,19 @@ conda activate img_class_ml_env
 
 pip install --upgrade pip
 
-pip install opencv-python
-pip install tensorflow
-#tensorflow 2.6.0 needs numpy 1.19.5
-#pip install numpy==1.19.5
-
+pip install opencv-python==4.5.3.*
+pip install tensorflow==2.7.*
 pip install Pillow
 pip install playsound
 pip install gTTS
-#for mac
-pip install pyobjc
 
 pip install matplotlib
 pip install pandas
 pip install seaborn
 
 pip install PyYAML
+
+#pip list --format=freeze > requirements.txt
 
 #so we can access this env in Jupiter notebook
 pip install ipykernel
