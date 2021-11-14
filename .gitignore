@@ -22,3 +22,6 @@ project/flowers-recognition/data/dandelion
 project/flowers-recognition/data/sunflower
 project/flowers-recognition/data/tulip
 *.h5
+yolo_v3/coco.names
+yolo_v3/yolov3.cfg
+yolo_v3/yolov3.weights
