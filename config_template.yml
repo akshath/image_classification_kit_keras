@@ -29,6 +29,15 @@ reduce_image_wh_by: 3
 crop_image_from_left: 0.0 #eg: 0.20 <- crop 20% on left
 crop_image_from_right: 0.0 #eg: 0.70 <- crop 30% on right
 
+#use object detection to isolate subject
+yolo_for_capture: False
+yolo_object_padding: 10
+yolo_resize_as_square: True
+yolo_filter_enabled: True
+yolo_filter_only: 
+    person
+    flower
+
 #----- param for labels -----------
 labels_from_dir: False
 #labels to use if labels_from_dir was False
