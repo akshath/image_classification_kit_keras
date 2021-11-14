@@ -1,0 +1,78 @@
+#config.yml
+
+#data source: https://www.kaggle.com/alxmamaev/flowers-recognition
+
+project_name: flowers-recognition
+
+#----- param for dir -----------
+#make sure path ends with /
+project_parent_dir: './project/'
+#project_parent_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/'
+
+#uncomment if you like to override
+#we we create folder for project_name under this dir (if missing)
+#project_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/flowers-recognition/'
+#we will store images in data sub-folder (./project/my_project/data)
+#project_data_dir: '/content/gdrive/MyDrive/ColabNotebooks/project/flowers-recognition/data/'
+
+#temp_dir: './temp/'
+#will be used to store non classified images
+#temp_dir: '/content/gdrive/MyDrive/ColabNotebooks/temp/'
+temp_dir: './temp/'
+
+#----- param for image capture -----------
+#src_video: 0 #for primary web cam
+#src_video: 'rtsp://username:password@192.168.1.10:554/stream1' #remote ip cam
+src_video: 2
+file_ext: '*.jpg'
+reduce_image_wh_by: 3
+
+#crop from left or right of image
+crop_image_from_left: 0.0 #eg: 0.20 <- crop 20% on left
+crop_image_from_right: 0.0 #eg: 0.70 <- crop 30% on right
+
+#use object detection to isolate subject
+yolo_for_capture: False
+yolo_object_padding: 10
+yolo_resize_as_square: True
+yolo_filter_enabled: True
+yolo_filter_only: 
+    person
+    flower
+
+#----- param for labels -----------
+labels_from_dir: True
+
+#labels to use if labels_from_dir was False
+labels:
+    daisy
+    dandelion
+    rose
+    sunflower
+    tulip
+
+#--- Param to be used to build and test model --
+model_file: './flowers_recognition_model.h5'
+input_img_height: 224
+input_img_width: 224
+
+train_augumentation:
+    contrast_range: [-1.0, 1.0]
+    brightness_delta: [-50, 50]
+    random_rotation: [-0.15, 0.15]
+    random_zoom: [-0.05, 0] #-ve is zoom in
+    #random_flip: horizontal_and_vertical or horizontal or vertical
+    random_flip: 'horizontal'
+
+#1 - base cnn
+#2 - transfer learning cnn
+model_to_try: 2
+
+# For 1
+#model_base: ''
+# For 2
+#for 2: ResNet50, ResNet50V2, VGG16, VGG19, MobileNet
+model_base: 'VGG19'
+
+train_freeze_base_layer: True
+train_freeze_skip_last_layers: 10
